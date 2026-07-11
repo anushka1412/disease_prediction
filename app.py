@@ -242,7 +242,7 @@ if st.button("Predict Disease"):
     ">
 
     <h2 style="color:#1565C0;">
-    Prediction Result
+    Prediction Result :
     </h2>
 
     <hr>
@@ -252,8 +252,8 @@ if st.button("Predict Disease"):
     </h3>
 
     <p>
-    The Machine Learning model predicts that the entered symptoms
-    most closely match <b>{disease[0]}</b>.
+     The Machine Learning model predicts that the entered symptoms
+     most closely match <b>{disease[0]}</b>.
     </p>
 
     </div>
