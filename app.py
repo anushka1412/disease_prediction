@@ -2,6 +2,12 @@ import streamlit as st
 import pandas as pd
 import joblib
 
+st.set_page_config(
+    page_title="AI Disease Predictor",
+    layout="wide"
+)
+
+
 with st.sidebar:
 
     st.image(
@@ -184,6 +190,48 @@ train = train.loc[:, ~train.columns.str.contains("^Unnamed")]
 
 symptoms = train.drop("prognosis", axis=1).columns
 
+# -------------------------------
+# Disease Recommendations
+# -------------------------------
+
+recommendations = {
+
+    "Fungal infection":[
+        "🧼 Keep the affected area clean and dry.",
+        "💊 Apply antifungal cream as prescribed.",
+        "👕 Wear clean cotton clothes.",
+        "👨‍⚕️ Consult a dermatologist if symptoms persist."
+    ],
+
+    "Allergy":[
+        "🌸 Avoid dust, pollen and allergens.",
+        "💧 Drink plenty of water.",
+        "💊 Take antihistamines if prescribed.",
+        "👨‍⚕️ Visit a doctor if symptoms worsen."
+    ],
+
+    "Common Cold":[
+        "☕ Drink warm fluids.",
+        "😴 Get enough rest.",
+        "🍊 Increase Vitamin C intake.",
+        "💊 Take medicines only if prescribed."
+    ],
+
+    "Malaria":[
+        "🛏 Take complete rest.",
+        "💧 Drink plenty of fluids.",
+        "💊 Complete the prescribed medication.",
+        "🏥 Visit a hospital immediately."
+    ],
+
+    "Typhoid":[
+        "🥣 Eat soft and nutritious food.",
+        "💧 Drink boiled water.",
+        "💊 Finish the antibiotic course.",
+        "👨‍⚕️ Consult a doctor."
+    ]
+}
+
 # Title
 st.markdown("""
 <h1 style='text-align:center;
@@ -227,11 +275,13 @@ for symptom in selected_symptoms:
     input_data[symptom] = 1
 
 # Predict
-if st.button("Predict Disease"):
+if st.button(" Predict Disease"):
 
-    prediction = model.predict(input_data)
+    with st.spinner("Analyzing symptoms..."):
 
-    disease = encoder.inverse_transform(prediction)
+        prediction = model.predict(input_data)
+
+        disease = encoder.inverse_transform(prediction)
 
     st.markdown(f"""
 <div style="
@@ -264,7 +314,16 @@ The AI model predicts that your symptoms most closely match
 
 
 
+st.markdown("## 📊 Risk Level")
 
+if len(selected_symptoms) <= 2:
+    st.success("🟢 Low Risk")
+
+elif len(selected_symptoms) <= 5:
+    st.warning("🟡 Moderate Risk")
+
+else:
+    st.error("🔴 High Risk")
 
 
 
