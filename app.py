@@ -2,6 +2,29 @@ import streamlit as st
 import pandas as pd
 import joblib
 
+with st.sidebar:
+
+    st.image(
+        "https://img.icons8.com/color/240/stethoscope.png",
+        width=120
+    )
+
+    st.title("Disease Predictor")
+
+    st.write("""
+This application predicts possible diseases based on selected symptoms.
+
+**Steps**
+
+✔ Select symptoms
+
+✔ Click Predict
+
+✔ View result
+
+⚠ This is an educational project only.
+""")
+    
 st.set_page_config(
     page_title="AI Disease Predictor",
     layout="wide"
@@ -122,4 +145,13 @@ if st.button("Predict Disease"):
     st.success(f"Predicted Disease: {disease[0]}")
 
 
+st.markdown("---")
+
+st.markdown("""
+<center>
+
+Made with ❤️ using Streamlit & Scikit-Learn
+
+</center>
+""", unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
