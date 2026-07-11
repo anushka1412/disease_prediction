@@ -314,18 +314,6 @@ The AI model predicts that your symptoms most closely match
 
 
 
-st.markdown("## 📊 Risk Level")
-
-if len(selected_symptoms) <= 2:
-    st.success("🟢 Low Risk")
-
-elif len(selected_symptoms) <= 5:
-    st.warning("🟡 Moderate Risk")
-
-else:
-    st.error("🔴 High Risk")
-
-
 
 
 
