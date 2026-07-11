@@ -98,7 +98,7 @@ st.markdown("""
 <h1 style='text-align:center;
 color:#00E5FF;
 font-size:48px;'>
-🩺 AI Disease Prediction System
+ AI Disease Prediction System
 </h1>
 
 <p style='text-align:center;
