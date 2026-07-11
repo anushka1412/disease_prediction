@@ -233,7 +233,39 @@ if st.button("Predict Disease"):
 
     disease = encoder.inverse_transform(prediction)
 
-    st.success(f"Predicted Disease: {disease[0]}")
+    st.markdown(f"""
+    <div style="
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0px 5px 20px rgba(0,0,0,0.15);
+    ">
+
+    <h2 style="color:#1565C0;">
+    Prediction Result
+    </h2>
+
+    <hr>
+
+    <h3 style="color:#2E7D32;">
+    {disease[0]}
+    </h3>
+
+    <p>
+    The Machine Learning model predicts that the entered symptoms
+    most closely match <b>{disease[0]}</b>.
+    </p>
+
+    </div>
+    """, unsafe_allow_html=True)
+
+
+
+
+
+
+
+
 
 
 st.markdown("---")
