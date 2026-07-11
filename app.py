@@ -33,6 +33,97 @@ st.set_page_config(
 st.markdown("""
 <style>
 
+/* Main Background */
+.stApp{
+    background:#F4F8FB;
+}
+
+/* Main Container */
+.block-container{
+    padding-top:2rem;
+    padding-bottom:2rem;
+}
+
+/* Title */
+.main-title{
+    text-align:center;
+    font-size:48px;
+    font-weight:700;
+    color:#0F4C81;
+    margin-bottom:10px;
+}
+
+/* Subtitle */
+.sub-title{
+    text-align:center;
+    color:#5B6770;
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+/* Card */
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* Predict Button */
+.stButton>button{
+    width:100%;
+    height:55px;
+    background:#0F4C81;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.stButton>button:hover{
+    background:#1565C0;
+}
+
+/* Success Box */
+.prediction-box{
+    background:#E8F5E9;
+    border-left:8px solid #2E7D32;
+    padding:20px;
+    border-radius:10px;
+    font-size:28px;
+    font-weight:bold;
+    color:#1B5E20;
+    margin-top:20px;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"]{
+    background:#0F4C81;
+}
+
+section[data-testid="stSidebar"] *{
+    color:white;
+}
+
+/* Multiselect */
+div[data-baseweb="select"]{
+    border-radius:10px;
+}
+
+/* Footer */
+.footer{
+    text-align:center;
+    color:#607D8B;
+    margin-top:40px;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+
 .stApp{
 background:linear-gradient(135deg,#0f172a,#1e293b,#334155);
 }
@@ -98,7 +189,7 @@ st.markdown("""
 <h1 style='text-align:center;
 color:#00E5FF;
 font-size:48px;'>
- AI Disease Prediction System
+ Disease Prediction System
 </h1>
 
 <p style='text-align:center;
