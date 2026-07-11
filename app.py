@@ -119,19 +119,7 @@ if st.button("Predict Disease"):
 
     disease = encoder.inverse_transform(prediction)
 
-    st.balloons()
-
-st.markdown(f"""
-<div class="prediction-box">
-
-🩺 Predicted Disease
-
-<br><br>
-
-{disease[0]}
-
-</div>
-""", unsafe_allow_html=True)
+    st.success(f"Predicted Disease: {disease[0]}")
 
 
 st.markdown("</div>", unsafe_allow_html=True)
