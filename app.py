@@ -4,7 +4,6 @@ import joblib
 
 st.set_page_config(
     page_title="AI Disease Predictor",
-    page_icon="🩺",
     layout="wide"
 )
 
@@ -92,9 +91,16 @@ st.markdown("<div class='main-card'>", unsafe_allow_html=True)
 
 # Symptom selection
 selected_symptoms = st.multiselect(
-    "Symptoms",
-    symptoms
+    " Select Symptoms",
+    symptoms,
+    placeholder="Choose one or more symptoms..."
 )
+
+progress = len(selected_symptoms) / len(symptoms)
+
+st.progress(progress)
+
+st.caption(f"Selected {len(selected_symptoms)} symptoms")
 
 # Create input vector
 input_data = pd.DataFrame(
@@ -113,7 +119,19 @@ if st.button("Predict Disease"):
 
     disease = encoder.inverse_transform(prediction)
 
-    st.success(f"Predicted Disease: {disease[0]}")
+    st.balloons()
+
+st.markdown(f"""
+<div class="prediction-box">
+
+🩺 Predicted Disease
+
+<br><br>
+
+{disease[0]}
+
+</div>
+""", unsafe_allow_html=True)
 
 
 st.markdown("</div>", unsafe_allow_html=True)
